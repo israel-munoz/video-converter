@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Video converter</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <aside class="window-controls">
+      <button id="window-minimize" class="minimize">Minimize</button>
+      <button id="window-maximize" class="maximize">Maximize</button>
+      <button id="window-restore" class="restore">Restore</button>
+      <button id="window-close" class="close">Close</button>
+    </aside>
+    <header>
+      <h1>Video converter</h1>
+    </header>
+    <main>
+      <button id="add-file" class="add-file">Add video file</button>
+      <input type="file" id="file-select" class="file-select" multiple/>
+      <section id="video-list" class="video-list">
+        <ul></ul>
+      </section>
+    </main>
+    <footer>
+      <section class="options">
+        <div class="control size-1">
+          <label for="output">Output directory</label>
+          <input type="text" id="output"/>
+        </div>
+        <div class="control size-1-2">
+          <label for="width">Width</label>
+          <input type="number" min="1" id="video-width"/>
+        </div>
+        <div class="control size-1-2">
+          <label for="height">Height</label>
+          <input type="number" min="1" id="video-height"/>
+        </div>
+        <div class="control size-1">
+          <label for="video-encoder">Video codec</label>
+          <select name="videoEnc" id="video-encoder"></select>
+        </div>
+        <div class="control size-1">
+          <label for="audio-encoder">Audio codec</label>
+          <select name="audioEnc" id="audio-encoder"></select>
+        </div>
+        <div class="control size-1-2">
+          <label for="crf">Constant rate factor</label>
+            <input type="range" id="crf" name="crf" min="0" max="51"/>
+        </div>
+        <div class="control size-1-2">
+          <label for="preset">Preset</label>
+          <select name="preset" id="preset">
+            <option value="ultrafast">ultrafast</option>
+            <option value="superfast">superfast</option>
+            <option value="veryfast">veryfast</option>
+            <option value="faster">faster</option>
+            <option value="fast">fast</option>
+            <option value="medium">medium</option>
+            <option value="slow">slow</option>
+            <option value="slower">slower</option>
+            <option value="veryslow">veryslow</option>
+          </select>
+        </div>
+      </section>
+      <section class="actions">
+        <button id="convert" class="convert">Start</button>
+      </section>
+    </footer>
+    <script>
+      require('./front/main.js');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,284 @@
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(113, 48%, 29%);
+  color: #fff;
+}
+
+input,
+select,
+button {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+.window-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.window-controls button {
+  font-size: 2rem;
+  width: 1em;
+  height: 0.7em;
+  text-indent: -100em;
+  overflow: hidden;
+  background: transparent url(images/buttons.svg) no-repeat top / 1em;
+  border-style: none;
+  transition: background-color .2s linear;
+}
+
+.window-controls button:hover {
+  background-color: hsla(0, 0%, 90%, .5);
+}
+
+.window-controls button:focus {
+  background-color: hsla(0, 0%, 90%, .5);
+  outline: none;
+}
+
+.window-controls button:active {
+  background-color: hsla(0, 0%, 60%, .5);
+}
+
+.window-controls .minimize {
+  background-position: 0 0;
+}
+
+.window-controls .maximize {
+  background-position: 0 -0.7em;
+}
+
+.window-controls .restore {
+  background-position: 0 -1.4em;
+  display: none;
+}
+
+.window-controls .close {
+  background-position: 0 -2.1em;
+}
+
+header {
+  padding: 1rem;
+  flex: 0 4em;
+  height: 4em;
+}
+
+header h1 {
+  font-size: 1.5em;
+  margin: 0;
+  font-weight: 600;
+}
+
+main {
+  padding: .5rem 1rem;
+  flex: 1;
+}
+
+main .add-file {
+  background-color: transparent;
+  border: solid 1px #000;
+  border-radius: 1.1em;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  filter: opacity(.5);
+  height: 2.2em;
+  margin-bottom: .5rem;
+  outline: none;
+  padding: 0 1em 0 0.5em;
+  transition: background-color .2s linear;
+}
+
+main .add-file:hover {
+  background-color: #fff2;
+}
+
+main .add-file::before {
+  content: '';
+  display: inline-block;
+  width: 1.6em;
+  height: 1.1em;
+  background: transparent url(images/buttons.svg) no-repeat 0 -4.45em / 1.6em;
+  border-style: none;
+  outline: none;
+}
+
+main .file-select {
+  display: none;
+}
+
+main .video-list {
+  background-color: #fff5;
+  box-shadow: inset 0 0 2em #000;
+  height: calc(100% - 2.7rem);
+  overflow: auto;
+}
+
+main .video-list::-webkit-scrollbar {
+  background: transparent;
+  width: .5em;
+}
+
+main .video-list::-webkit-scrollbar-thumb {
+  background: #fffa;
+  border-radius: .25em;
+}
+
+main .video-list.dragging {
+  box-shadow: inset 0 0 2em hsl(229, 100%, 63%);
+}
+
+main .video-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+main .video-list ul li {
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 150px;
+  align-content: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+main .video-list ul li.selected {
+  background-color: #0001;
+}
+
+main .video-list ul li .name {
+  font-size: 110%;
+  display: block;
+  order: 1;
+}
+
+main .video-list ul li .thumbnail {
+  order: 0;
+  flex: 0 100%;
+  margin: 0;
+  margin-right: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main .video-list ul li .path {
+  order: 2;
+}
+
+main .video-list ul li .duration {
+  order: 3;
+  flex: 0;
+}
+
+main .video-list ul li .done {
+  order: 4;
+}
+
+main .video-list ul li button.remove {
+  font-size: 1.5em;
+  background: transparent url(images/buttons.svg) no-repeat 50% -5.3em / 1.5em;
+  border-radius: 50%;
+  border-style: none;
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  text-indent: -10em;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  transition: filter .2s linear;
+  outline: none;
+}
+
+main .video-list ul li button.remove:hover {
+  filter: brightness(1.5);
+}
+
+main .video-list ul li button.remove:disabled {
+  filter: opacity(.5);
+  cursor: default;
+}
+
+footer {
+  flex: 0;
+  padding: .5rem 1rem 1rem;
+}
+
+footer .options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+footer .options .control {
+  flex: 0 var(--control-flex);
+  padding: .25rem .5rem;
+}
+
+footer .options .control.size-1 {
+  --control-flex: 100%;
+}
+
+footer .options .control.size-1-2 {
+  --control-flex: 50%;
+}
+
+footer .options .control label {
+  font-size: 80%;
+  display: block;
+}
+
+footer .options .control input,
+footer .options .control select {
+  font-size: 120%;
+  height: 1.6em;
+  width: 100%;
+}
+
+footer .actions {
+  text-align: center;
+}
+
+footer .actions button {
+  font-size: 150%;
+  font-weight: 600;
+  width: 10ch;
+  height: 2em;
+}
+
+@media (min-width: 1000px) {
+  body {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  header {
+    flex: 0 100%;
+  }
+
+  main,
+  footer {
+    height: calc(100% - 4em);
+  }
+
+  footer {
+    flex: 0 30em;
+  }
+}

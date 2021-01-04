@@ -1,0 +1,36 @@
+<svg width="20" height="84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="minimize">
+      <!-- <rect x="" y="" width="20" height="14" fill="#eee" stroke-width="0.5" stroke="#0000"/> -->
+      <path d="m6.5,8.5h7v1h-7z" fill="#fff"/>
+    </g>
+    <g id="maximize">
+      <!-- <rect x="" y="" width="20" height="14" fill="#eee" stroke-width="0.5" stroke="#0000"/> -->
+      <path d="m6.5,3.5h7v7h-7zm1,1h5v5h-5z" fill-rule="evenodd" fill="#fff"/>
+    </g>
+    <g id="restore">
+      <!-- <rect x="" y="" width="20" height="14" fill="#eee" stroke-width="0.5" stroke="#0000"/> -->
+      <path d="m8,3.5h5.5v5.5h-1.5v1.5h-5.5v-5.5h1.5zm1,1h3.5v3.5h-.5v-3h-3zm-1.5,1.5h3.5v3.5h-3.5z" fill-rule="evenodd" fill="#fff"/>
+    </g>
+    <g id="close">
+      <!-- <rect x="" y="" width="20" height="14" fill="#eee" stroke-width="0.5" stroke="#0000"/> -->
+      <path d="m6,6.5h8v1h-8zm3.5-3.5h1v8h-1z" transform-origin="10 7" transform="rotate(45)" fill="#fff"/>
+    </g>
+    <g id="add">
+      <!-- <rect x="" y="" width="20" height="14" fill="#eee" stroke-width="0.5" stroke="#0000"/> -->
+      <path d="m6.5,6h7v2h-7zm2.5-2.5h2v7h-2z" fill="#fff"/>
+    </g>
+    <g id="remove">
+      <!-- <rect x="" y="" width="20" height="14" fill="#eee" stroke-width="0.5" stroke="#0000"/> -->
+      <path d="m10,7m-5,0a5,5 0 1,0 10,0a5,5 0 1,0 -10,0" fill="#900a"/>
+      <path d="m7,6h6v2h-6z" fill="#fff"/>
+    </g>
+  </defs>
+  <!-- <rect x="" y="" width="200" height="200" fill="#f00"/> -->
+  <use xlink:href="#minimize"/>
+  <use xlink:href="#maximize" y="14"/>
+  <use xlink:href="#restore" y="28"/>
+  <use xlink:href="#close" y="42" />
+  <use xlink:href="#add" y="56" />
+  <use xlink:href="#remove" y="70" />
+</svg>
